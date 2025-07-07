@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RTI Receipt Management System | Government of India</title>
+
+    <!-- Meta required by GIGW & SEO -->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Right to Information (RTI) receipt and appeal management portal for public authorities"
+    />
+    <meta name="theme-color" content="#0D3C55" />
+    <meta name="author" content="Government of India" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Normalise + Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha384-qmXWLjubD2zz97RUXMMDGwBna6Sx0lC+35JtGV5I8+g3Yn05tRM6tMIJx2KmO0fQ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Emblem_of_India_%28navy_blue%29.svg/32x32.png" />
+  </head>
+
+  <body>
+    <!-- skip-link for a11y -->
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- React root -->
+    <div id="root"></div>
+
+    <noscript>
+      <div class="noscript">
+        <div class="noscript-content">
+          <h1>JavaScript Required</h1>
+          <p>This RTI Receipt Management System requires JavaScript to function properly.</p>
+          <p>Please enable JavaScript in your browser and refresh the page.</p>
+          <p>For assistance, contact your system administrator.</p>
+        </div>
+      </div>
+    </noscript>
+
+    <!-- React & Babel (for quick demo; replace with build pipeline in prod) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Application logic -->
+    <script type="text/babel" src="app.js"></script>
+  </body>
+</html>

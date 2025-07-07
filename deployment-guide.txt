@@ -1,0 +1,58 @@
+
+Deployment Guide – RTI Receipt Management System (Updated July 2025)
+===================================================================
+
+Follow these steps to audit, build, and publish the portal on a Government of India server.
+
+1. Prerequisites
+   -------------
+   • Node.js ≥ 18 LTS (for production build)
+   • Git (optional) – to version-control the source
+   • NIC-approved hosting (Apache/Nginx with TLS 1.3)
+
+2. Local Verification (Static Demo)
+   --------------------------------
+   1. Extract the ZIP and open `index.html` in a browser.
+   2. Ensure form validation, navigation dropdowns, and table filters work.
+
+3. STQC & GIGW 3.0 Audit
+   ----------------------
+   • Run **MAW** accessibility checker and **WCAG 2.1 AA** tools.
+   • Validate colour contrast (≥ 4.5:1) and keyboard operability.
+
+4. Production Build
+   ----------------
+   ```bash
+   npm create vite@latest rti-portal --template react
+   cd rti-portal
+   # Replace default src assets with index.html, style.css, app.js
+   npm install
+   npm run build
+   ```
+   The compiled files will appear in `dist/` (~50 kB gzip).
+
+5. Server Configuration
+   --------------------
+   • Serve `dist/` via **Nginx** with:
+     ```
+     add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";
+     add_header X-Content-Type-Options nosniff;
+     add_header X-Frame-Options SAMEORIGIN;
+     ```
+   • Enforce HTTPS and redirect HTTP → HTTPS.
+   • Place the portal under `/rti/` path or a sub-domain as approved.
+
+6. Backend Integration (Optional)
+   -------------------------------
+   • Replace `demoRows` array in `app.js` with `fetch()` calls to your NIC RTI-MIS API.
+   • Secure the API behind NIC CDN/WAF.
+
+7. Post-deployment Checklist
+   -------------------------
+   ✅ Favicon & emblem load over HTTPS
+   ✅ All pages pass **WAVE** & **Pa11y** tests
+   ✅ TLS 1.3 A+ on SSL Labs
+
+8. Support
+   --------
+   Contact the Department’s e-Governance Cell (egov-support@example.gov.in) for assistance.
